@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeLayout">
+        <attr name="show_mode"
+              format="enum">
+            <enum name="pull_out"
+                  value="0"/>
+            <enum name="lay_down"
+                  value="1"/>
+            <enum name="stretch"
+                  value="2"/>
+        </attr>
+        <attr name="mainViewIndex"
+              format="integer"/>
+        <attr name="leftViewIndex"
+              format="integer"/>
+        <attr name="rightViewIndex"
+              format="integer"/>
+    </declare-styleable>
+
+</resources>
