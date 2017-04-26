@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class MainActivity extends ListActivity {
 
-	private String name[] = { "SwipeLayout", "WheelView", "DialView" };
+	private String name[] = { "SwipeLayout" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
