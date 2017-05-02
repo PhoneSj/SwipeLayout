@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.phone.test.SwipeLayoutTest"/>
+        <activity android:name="com.phone.test.EnableListViewTest"/>
+        <activity android:name="com.phone.test.EnableSwipeListViewTest"/>
     </application>
 
 </manifest>

@@ -11,7 +11,8 @@ import java.util.Arrays;
 
 public class MainActivity extends ListActivity {
 
-	private String name[] = { "SwipeLayout" };
+	private String name[] = { "单个SwipeLayout","SwipeLayout嵌入普通ListView",
+			"SwipeLayout嵌入SwipeListView" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,12 @@ public class MainActivity extends ListActivity {
 		switch (position) {
 			case 0:
 				startActivity(new Intent(this, SwipeLayoutTest.class));
+				break;
+			case 1:
+				startActivity(new Intent(this,EnableListViewTest.class));
+				break;
+			case 2:
+				startActivity(new Intent(this,EnableSwipeListViewTest.class));
 				break;
 		}
 	}

@@ -23,7 +23,7 @@ public class LayDownMode extends SwipeMode {
 			leftView.layout(0, 0, leftView.getMeasuredWidth(), leftView.getMeasuredHeight());
 		}
 		if (rightView != null) {
-			rightView.layout(swipeLayout.getMeasuredWidth() - swipeLayout.getMeasuredWidth(), 0,
+			rightView.layout(swipeLayout.getMeasuredWidth() - rightView.getMeasuredWidth(), 0,
 					swipeLayout.getMeasuredWidth(), rightView.getMeasuredHeight());
 		}
 	}

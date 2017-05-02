@@ -237,6 +237,8 @@ public class SwipeLayout extends FrameLayout {
 		return super.dispatchTouchEvent(event);
 	}
 
+	private boolean isIntercept=false;
+
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent event) {
 		LogUtils.showW(TAG, "onInterceptTouchEvent", TAG_ENABLE);
@@ -250,7 +252,7 @@ public class SwipeLayout extends FrameLayout {
 				final int y = (int) event.getY();
 				mLastMotionX = x;
 				mLastMotionX = y;
-				mIsBeingDragged = false;
+				isIntercept = false;
 				LogUtils.showD(TAG, "status:" + mStatus, TAG_ENABLE);
 				break;
 			}
@@ -264,7 +266,7 @@ public class SwipeLayout extends FrameLayout {
 				mLastMotionY = y;
 
 				if (Math.abs(xDiff) > mTouchSlop && Math.abs(xDiff) > Math.abs(yDiff)) {
-					mIsBeingDragged = true;
+					isIntercept = true;
 					final ViewParent parent = getParent();
 					if (parent != null) {
 						parent.requestDisallowInterceptTouchEvent(true);
@@ -286,7 +288,7 @@ public class SwipeLayout extends FrameLayout {
 			default:
 				break;
 		}
-		return mIsBeingDragged;
+		return isIntercept;
 	}
 
 	/**
@@ -343,9 +345,11 @@ public class SwipeLayout extends FrameLayout {
 					determineWhichDrageEdge(x - mFirstMotionX);
 					LogUtils.showD(TAG, "mIsBeingDragged:" + mIsBeingDragged, TAG_ENABLE);
 					LogUtils.showD(TAG, "mCurrentDragEdge:" + mCurrentDragEdge, TAG_ENABLE);
+					LogUtils.showD(TAG, "state:" + mStatus, TAG_ENABLE);
 					if (mIsBeingDragged || mCurrentDragEdge != Empty) {
 						//当可拖拽时进行偏移量累加
-						mCurrentOffset += xDiff;
+						checkOffset(xDiff);
+//						mCurrentOffset += xDiff;
 
 						final ViewParent parent = getParent();
 						if (parent != null) {
@@ -378,6 +382,28 @@ public class SwipeLayout extends FrameLayout {
 				break;
 		}
 		return super.onTouchEvent(event) || mIsBeingDragged || event.getAction() == MotionEvent.ACTION_DOWN;
+	}
+
+	private void checkOffset(int xDiff) {
+		switch (mCurrentDragEdge){
+			case Left:
+				if(Math.abs(mCurrentOffset+xDiff)>getLeftView().getMeasuredWidth()){
+					mCurrentOffset=getLeftView().getMeasuredWidth();
+				}else {
+					mCurrentOffset+=xDiff;
+				}
+				break;
+			case Right:
+				if(Math.abs(mCurrentOffset+xDiff)>getRightView().getMeasuredWidth()){
+				    mCurrentOffset=-getRightView().getMeasuredWidth();
+				}else {
+					mCurrentOffset+=xDiff;
+				}
+				break;
+			default:
+				mCurrentOffset=0;
+				break;
+		}
 	}
 
 	private void setStatus(Status status) {
@@ -498,6 +524,18 @@ public class SwipeLayout extends FrameLayout {
 			}
 		}
 
+	}
+
+	public void closeMenu(){
+		if(mSwipeMode!=null){
+		    mSwipeMode.closeMenu();
+		}
+	}
+
+	public void openMenu(){
+		if(mSwipeMode!=null){
+		    mSwipeMode.openMenu();
+		}
 	}
 
 }

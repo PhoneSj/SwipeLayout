@@ -46,7 +46,7 @@ public class StretchMode extends SwipeMode {
 		}
 		if (rightView != null) {
 			rightView.setPivotX(rightView.getMeasuredWidth());
-			float scaleValue = -offset * 1.0f / leftView.getMeasuredWidth();
+			float scaleValue = -offset * 1.0f / rightView.getMeasuredWidth();
 			rightView.setScaleX(scaleValue);
 		}
 		swipeLayout.invalidate();
