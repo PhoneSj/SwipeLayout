@@ -38,12 +38,18 @@ SwipeLayout是一个侧滑容器，包括一个主体View和若干个侧滑View�
 3. strectch：对应StretchMode。
 4. 如果需要实现其他效果，可以继承SwipeMode类来拓展。
 5. 下面是三种显示方式的效果：
+
 pull_out效果图：
-![这里写图片描述](http://img.blog.csdn.net/20170502224606492?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNqNzI0NDMwMzI3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![这里写图片描述](preview/swipelayout_pull_out.gif)
+
 lay_down效果图：
-![这里写图片描述](http://img.blog.csdn.net/20170502224712233?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNqNzI0NDMwMzI3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![这里写图片描述](preview/swipelayout_lay_down.gif)
+
 stretch效果图：
-![这里写图片描述](http://img.blog.csdn.net/20170502224810407?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNqNzI0NDMwMzI3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![这里写图片描述](preview/swipelayout_stretch.gif)
 
 ### 代码分析
 
