@@ -216,13 +216,10 @@ public class SwipeLayout extends FrameLayout {
 					View leftChild = mDragEdges.get(DragEdge.Left);
 					View rightChild = mDragEdges.get(DragEdge.Right);
 					if (child == null) {
-						LogUtils.showD("phoneTest", "==========1==========", true);
 						isCloseEvent = true;
 					} else if (child == leftChild || child == rightChild) {
-						LogUtils.showD("phoneTest", "==========2==========", true);
 						isCloseEvent = false;
 					} else {
-						LogUtils.showD("phoneTest", "==========3==========", true);
 						isCloseEvent = true;
 					}
 					if (isCloseEvent) {
@@ -242,7 +239,7 @@ public class SwipeLayout extends FrameLayout {
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent event) {
 		LogUtils.showW(TAG, "onInterceptTouchEvent", TAG_ENABLE);
-		if (!mSwipeEnabled) {
+		if (!mSwipeEnabled) {									//没开启侧滑功能时，直接返回，不拦截事件
 			return super.onInterceptTouchEvent(event);
 		}
 		switch (event.getAction()) {
@@ -266,6 +263,7 @@ public class SwipeLayout extends FrameLayout {
 				mLastMotionY = y;
 
 				if (Math.abs(xDiff) > mTouchSlop && Math.abs(xDiff) > Math.abs(yDiff)) {
+					//在move中判断滑动的方向，只有当判定为横向滑动时，才拦截事件并自己处理
 					isIntercept = true;
 					final ViewParent parent = getParent();
 					if (parent != null) {
@@ -349,8 +347,6 @@ public class SwipeLayout extends FrameLayout {
 					if (mIsBeingDragged || mCurrentDragEdge != Empty) {
 						//当可拖拽时进行偏移量累加
 						checkOffset(xDiff);
-//						mCurrentOffset += xDiff;
-
 						final ViewParent parent = getParent();
 						if (parent != null) {
 							parent.requestDisallowInterceptTouchEvent(true);
