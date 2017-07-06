@@ -1,7 +1,7 @@
 ### 一、简单分析
 SwipeLayout是一个侧滑容器，包括一个主体View和若干个侧滑View。如：QQ的侧滑效果。
 
-![这里写图片描述](http://img.blog.csdn.net/20170502223215057?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZnNqNzI0NDMwMzI3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](preview/SwipeLayout_00.png)
 初始化时，leftView、rightView都显示在屏幕外面，只能看到mainView。
 当向右滑动屏幕时，leftView逐渐显示出来；当向左滑动时，rightView显示出来。
 
@@ -41,15 +41,15 @@ SwipeLayout是一个侧滑容器，包括一个主体View和若干个侧滑View�
 
 pull_out效果图：
 
-![这里写图片描述](preview/swipelayout_pull_out.gif)
+![这里写图片描述](preview/SwipeLayout_pullout_00.gif)
 
 lay_down效果图：
 
-![这里写图片描述](preview/swipelayout_lay_down.gif)
+![这里写图片描述](preview/SwipeLayout_laydown_00.gif)
 
 stretch效果图：
 
-![这里写图片描述](preview/swipelayout_stretch.gif)
+![这里写图片描述](preview/SwipeLayout_stretch_00.gif)
 
 ### 代码分析
 
@@ -227,10 +227,9 @@ stretch效果图：
 
 * 使用普通的ListView
 
-!["嵌入ListView"](preview/embed_listview.gif)
+!["嵌入ListView"](preview/SwipeLayout_embed_00.gif)
 
 * 使用SwipeListView
 
-!["嵌入SwipeListView"](preview/embed_swipelistview.gif)
-
+!["嵌入SwipeListView"](preview/SwipeLayout_embed_01.gif)
 
