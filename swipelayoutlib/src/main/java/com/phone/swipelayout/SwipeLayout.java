@@ -248,7 +248,7 @@ public class SwipeLayout extends FrameLayout {
 				final int x = (int) event.getX();
 				final int y = (int) event.getY();
 				mLastMotionX = x;
-				mLastMotionX = y;
+				mLastMotionY = y;
 				isIntercept = false;
 				LogUtils.showD(TAG, "status:" + mStatus, TAG_ENABLE);
 				break;
